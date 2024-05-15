@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Sentence</title>
+</head>
+<body>
+    <h2>Enter a Sentence:</h2>
+    <form id="sentenceForm">
+        <input type="text" id="sentenceInput" name="sentence" placeholder="Enter 1 or 0">
+        <button type="submit">Submit</button>
+    </form>
+    
+    <div id="positiveMessage"></div>
+    <div id="negativeMessage"></div>
+
+    <script>
+        document.getElementById('sentenceForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // prevent the default form submission
+            var sentence = document.getElementById('sentenceInput').value.trim();
+
+            if (sentence === "1") {
+                document.getElementById('positiveMessage').innerText = "Positive";
+                document.getElementById('negativeMessage').innerText = "";
+            } else if (sentence === "0") {
+                document.getElementById('negativeMessage').innerText = "Negative";
+                document.getElementById('positiveMessage').innerText = "";
+            } else {
+                alert("Invalid input. Please enter either 1 or 0.");
+                document.getElementById('positiveMessage').innerText = "";
+                document.getElementById('negativeMessage').innerText = "";
+            }
+        });
+    </script>
+</body>
+</html>
